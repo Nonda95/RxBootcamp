@@ -2,6 +2,7 @@ package pl.osmalek.bartek.rxbootcamp
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.jakewharton.rxbinding2.widget.textChanges
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity(), MainView {
     private fun prepareRecyclerView() {
         rvResults.layoutManager = LinearLayoutManager(this)
         rvResults.adapter = adapter
+        rvResults.itemAnimator = DefaultItemAnimator()
     }
 
     override fun onDestroy() {
