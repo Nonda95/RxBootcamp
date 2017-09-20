@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity(), MainView {
 
         prepareRecyclerView()
 
-        presenter.onViewCreated(this, etSearch.textChanges())
+        presenter.onViewCreated(this)
+        presenter.onSearchWatchReady(etSearch.textChanges())
     }
 
     private fun prepareRecyclerView() {
