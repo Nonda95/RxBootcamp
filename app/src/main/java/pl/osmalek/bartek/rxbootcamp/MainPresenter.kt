@@ -17,6 +17,11 @@ class MainPresenter {
     private val service = WordpressService()
 
     fun onViewCreated(view: MainView, searchObservable: Observable<CharSequence>) {
+        this.view = view
+        watchSearch(searchObservable)
+    }
+
+    private fun watchSearch(searchObservable: Observable<CharSequence>) {
         disposable = searchObservable
                 .debounce(500, TimeUnit.MILLISECONDS)
                 .doOnNext(::println)
@@ -34,7 +39,6 @@ class MainPresenter {
                         this.view?.showNoResults()
                     }
                 }
-        this.view = view
     }
 
     fun onViewDestroyed() {
