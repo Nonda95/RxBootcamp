@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 const val BASE_URL = "https://thedroidsonroids.com/wp-json/wp/v2/"
 
 class WordpressService {
-    val cache = LruCache<Long, User>(20)
+    private val cache = LruCache<Long, User>(20)
     private val wordpress: Wordpress = Retrofit.Builder()
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(MoshiConverterFactory.create())
